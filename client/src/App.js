@@ -1,11 +1,9 @@
-import logo from './logo.svg';
+import CovatarsGameContainer from './containers/CovatarsGameContainer';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <CovatarsGameContainer />
   );
 }
 
