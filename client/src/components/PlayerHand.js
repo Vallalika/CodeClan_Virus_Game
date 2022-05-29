@@ -2,17 +2,17 @@ import React from "react"
 import Card from "./Card"
 import styled from 'styled-components'
 
-const PlayerHand = () => {
+const ListStyle = styled.ul `
+list-style-type: none;
+padding-left: 0;
+display: flex;
+justify-content: space-between;
+`
+const ItemStyle = styled.li `
+display: inline-block;
+`
 
-    const ListStyle = styled.ul `
-        list-style-type: none;
-        padding-left: 0;
-        display: flex;
-        justify-content: space-between;
-    `
-    const ItemStyle = styled.li `
-        display: inline-block;
-    `
+const PlayerHand = () => {
 
     return (
         <>
