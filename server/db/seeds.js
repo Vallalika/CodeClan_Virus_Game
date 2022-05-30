@@ -301,11 +301,3 @@ db.cards.insertMany([
     "type": "cure",
     },
     ]);
-
-
-
-
-
-
-
-
