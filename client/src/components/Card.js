@@ -1,18 +1,10 @@
-import { useState, useEffect } from 'react';
+import React from "react";
 
-const Card = ({cards, setCards}) => {
-    
+const Card = () => {
 
-  return (
-    <div className="card-display">
-      <p>{cards.name}</p>
-      <p>{cards.type}</p>
-      <p>{cards.invulnerable}</p>
-      <p>{cards._id}</p>
-      <p>{cards.score}</p>
-            
-    </div>
-  )
-};
+    return (
+        <h4> Card </h4>
+    )
+}
 
-export default Card;
+export default Card
