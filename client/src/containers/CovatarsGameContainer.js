@@ -23,8 +23,8 @@ const CovatarsGameContainer = () => {
             </ul> */}
             
             {/* DISPLAY TEST - ALL WORKING */}
-            {/* <PlayerCreation /> */}
-            <PlayerTurn player = "Player One" />
+            <PlayerCreation />
+            {/* <PlayerTurn player = "Player One" /> */}
             {/* <PlayerTurn player = "Player Two" /> */}
         </>
     )

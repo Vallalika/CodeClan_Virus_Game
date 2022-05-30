@@ -2,6 +2,8 @@ import React from "react"
 import Card from "./Card"
 import styled from 'styled-components'
 
+
+
 const ListStyle = styled.ul `
 list-style-type: none;
 padding-left: 0;
