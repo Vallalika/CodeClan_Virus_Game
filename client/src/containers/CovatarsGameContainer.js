@@ -1,9 +1,16 @@
 import react, { useState, useEffect } from 'react'
 import PlayerCreation from './PlayerCreation'
 import PlayerTurn from './PlayerTurn'
+import CardService from '../services/GameServices'
 
 
 const CovatarsGameContainer = () => {
+    const [cards, setCards] = useState([])
+
+    useEffect(() => {
+        CardService.getCards()
+        .then(cards => setCards(cards))
+    }, [])
 
     return (
         <>
