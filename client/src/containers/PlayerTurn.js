@@ -34,13 +34,13 @@ const RightBoard = styled.section `
     grid-column: 3 / 5;
 `
 
-const PlayerTurn = ({player}) => {
+const PlayerTurn = ({player, playerOneName, playerTwoName}) => {
 
     return (
         <>
             <GridWrap>
                 <a> Link to instructions</a>
-                <ScreenTitle> {player}'s Turn</ScreenTitle>
+                <ScreenTitle> {playerOneName}'s Turn</ScreenTitle>
                 <Deck />
                 <HandArea>
                     <PlayerHand />

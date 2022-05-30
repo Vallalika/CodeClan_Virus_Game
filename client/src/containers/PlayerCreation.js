@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const PlayerCreation = () => {
+const PlayerCreation = ({setPlayerOneName, setPlayerTwoName}) => {
 
-    const [playerOneName, setPlayerOneName] = useState("")
-    const [playerTwoName, setPlayerTwoName] = useState("")
+    // const [playerOneName, setPlayerOneName] = useState("")
+    // const [playerTwoName, setPlayerTwoName] = useState("")
 
     const playerOneChange = (event) => {
         setPlayerOneName(event.target.value)
@@ -36,7 +37,7 @@ const PlayerCreation = () => {
                     <input type="text" id="name" onChange={playerOneChange} required/>
                 </div>
                 {/* <input type="submit" value="Start" id="start-button"/> */}
-                <a href="http://localhost:3000/playerTurn" id="start-button">START</a>
+                <Link to="/playerTurn" id="start-button">START</Link>
                 <div id="players-form">
                     <h2>Player 2 </h2>
                     <input type="text" id="name" onChange={playerTwoChange} required/> 

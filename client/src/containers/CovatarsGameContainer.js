@@ -7,12 +7,12 @@ import {BrowserRouter as Router, Routes, Link} from "react-router-dom"
 
 
 const CovatarsGameContainer = () => {
-    const [cards, setCards] = useState([])
+    // const [cards, setCards] = useState([])
 
-    useEffect(() => {
-        CardService.getCards()
-        .then(cards => setCards(cards))
-    }, [])
+    // useEffect(() => {
+    //     CardService.getCards()
+    //     .then(cards => setCards(cards))
+    // }, [])
 
     return (
         <>
