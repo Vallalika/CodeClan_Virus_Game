@@ -1,8 +1,8 @@
 import React from "react"
 import PlayerHand from "../components/PlayerHand"
 import PlayerBoard from "../components/PlayerBoard"
-import Deck from "../components/Deck"
 import styled from 'styled-components'
+import { refillHand } from "../services/GameServices"
 
 const GridWrap = styled.main`
     height: 100vh;
@@ -34,14 +34,33 @@ const RightBoard = styled.section `
     grid-column: 3 / 5;
 `
 
-const PlayerTurn = ({ playerOneName, playerTwoName, playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand}) => {
+const PlayerTurn = ({ playerOneName, playerTwoName, playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand, deck, refillHand}) => {
+
+
+const onClick = () => {refillHand(playerOneHand)}
+
+// const refillHand = (playerHand, currentDeck, setPlayerHand) => {
+//     let randomizedHand = [...playerHand] //this is where we push our 3 randomised cards
+//     let deckCopy = [...currentDeck] 
+
+//             while(randomizedHand.length < 3){
+//                 let randomIndex = Math.floor(Math.random() * deckCopy.length)
+//                 let chosenCard = deckCopy[randomIndex]
+//                 deckCopy.splice(randomIndex,1)
+//                 randomizedHand.push(chosenCard)
+                
+//         }
+//         console.log(deckCopy)
+//         setPlayerHand(randomizedHand)
+//     console.log("This is refillHand")
+//     }
 
     return (
         <>
             <GridWrap>
                 <a> Link to instructions</a>
                 <ScreenTitle> {playerOneName}'s Turn</ScreenTitle>
-                <Deck />
+                <button onClick={onClick}>Refill Hand</button>
                 <HandArea>
                     <PlayerHand 
                         playerOneHand={playerOneHand}
