@@ -10,3 +10,7 @@ const CardService =  {
 };
 
 export default CardService
+
+export const refillHand = (deck) => {
+    
+}

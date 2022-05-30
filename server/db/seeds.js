@@ -6,7 +6,8 @@ db.cards.insertMany([
         "color": "red",
         "name": "heart",
         "type": "organ",
-        "invulnerable": false
+        "invulnerable": false,
+        "img_url":"red_organ.png"
     },
     {
         "score":0,

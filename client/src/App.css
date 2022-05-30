@@ -29,6 +29,10 @@ body {
   color: blueviolet;
   font-weight: bold;
   box-shadow: 5px 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .h1 {
@@ -87,4 +91,8 @@ body {
   left: 0;
   top: 100%;
   transform: translate(0, -100%);
+}
+
+#card-image{
+  max-width: 200px;
 }

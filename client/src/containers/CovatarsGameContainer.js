@@ -2,15 +2,17 @@ import react, { useState, useEffect } from 'react'
 import PlayerCreation from './PlayerCreation'
 import PlayerTurn from './PlayerTurn'
 import CardService from '../services/GameServices'
+import {BrowserRouter as Router, Routes, Link} from "react-router-dom"
+
 
 
 const CovatarsGameContainer = () => {
-    const [cards, setCards] = useState([])
+    // const [cards, setCards] = useState([])
 
-    useEffect(() => {
-        CardService.getCards()
-        .then(cards => setCards(cards))
-    }, [])
+    // useEffect(() => {
+    //     CardService.getCards()
+    //     .then(cards => setCards(cards))
+    // }, [])
 
     return (
         <>
@@ -23,7 +25,8 @@ const CovatarsGameContainer = () => {
             </ul> */}
             
             {/* DISPLAY TEST - ALL WORKING */}
-            <PlayerCreation />
+            {/* <PlayerCreation /> */}
+            
             {/* <PlayerTurn player = "Player One" /> */}
             {/* <PlayerTurn player = "Player Two" /> */}
         </>

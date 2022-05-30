@@ -14,7 +14,7 @@ const ItemStyle = styled.li `
 display: inline-block;
 `
 
-const PlayerHand = () => {
+const PlayerHand = ({playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand}) => {
 
     return (
         <>
