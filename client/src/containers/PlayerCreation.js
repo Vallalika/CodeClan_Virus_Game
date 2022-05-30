@@ -11,6 +11,15 @@ const PlayerCreation = () => {
     const playerTwoChange = (event) => {
         setPlayerTwoName(event.target.value)
     }
+
+    // const onSubmit = (event) => {
+    //     event.preventDefault()
+
+    //     return(
+
+    //     )
+    // }
+
     return (
         <>
             <div id="header">
@@ -26,7 +35,8 @@ const PlayerCreation = () => {
                     <h2>Player 1 </h2>
                     <input type="text" id="name" onChange={playerOneChange} required/>
                 </div>
-                <input type="submit" value="Start" id="start-button"/>
+                {/* <input type="submit" value="Start" id="start-button"/> */}
+                <a href="http://localhost:3000/playerTurn" id="start-button">START</a>
                 <div id="players-form">
                     <h2>Player 2 </h2>
                     <input type="text" id="name" onChange={playerTwoChange} required/> 
