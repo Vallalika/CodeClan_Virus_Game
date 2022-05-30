@@ -12,6 +12,9 @@ function App() {
   const [playerOneName, setPlayerOneName] = useState("")
   const [playerTwoName, setPlayerTwoName] = useState("")
 
+  const [playerOneHand, setPlayerOneHand] = useState([])
+  const [playerTwoHand, setPlayerTwoHand] = useState([])
+
   const [cards, setCards] = useState([])
 
   useEffect(() => {
@@ -31,12 +34,19 @@ function App() {
           <Routes>
             <Route 
               path="/" 
-              element={<PlayerCreation setPlayerOneName={setPlayerOneName} setPlayerTwoName={setPlayerTwoName} playerOneName={playerOneName} />}
+              element={<PlayerCreation 
+              setPlayerOneName={setPlayerOneName} 
+              setPlayerTwoName={setPlayerTwoName} />}
             /> 
             <Route 
               path="/playerTurn" 
               element={<PlayerTurn playerOneName={playerOneName} 
-              playerTwoName={playerTwoName} />}
+              playerTwoName={playerTwoName}
+              playerOneHand={playerOneHand}
+              setPlayerOneHand={setPlayerOneHand}
+              playerTwoHand={playerTwoHand}
+              setPlayerTwoHand={setPlayerTwoHand}
+              />}
             />
           </Routes>
         

@@ -34,7 +34,7 @@ const RightBoard = styled.section `
     grid-column: 3 / 5;
 `
 
-const PlayerTurn = ({player, playerOneName, playerTwoName}) => {
+const PlayerTurn = ({ playerOneName, playerTwoName, playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand}) => {
 
     return (
         <>
@@ -43,7 +43,11 @@ const PlayerTurn = ({player, playerOneName, playerTwoName}) => {
                 <ScreenTitle> {playerOneName}'s Turn</ScreenTitle>
                 <Deck />
                 <HandArea>
-                    <PlayerHand />
+                    <PlayerHand 
+                        playerOneHand={playerOneHand}
+                        setPlayerOneHand={setPlayerOneHand}
+                        playerTwoHand={playerTwoHand}
+                        setPlayerTwoHand={setPlayerTwoHand} />
                 </HandArea>
                 <LeftBoard>
                     <PlayerBoard />
