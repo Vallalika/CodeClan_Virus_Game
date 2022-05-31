@@ -15,6 +15,8 @@ function App() {
   const [playerOneHand, setPlayerOneHand] = useState([])
   const [playerTwoHand, setPlayerTwoHand] = useState([])
 
+  const [currentPlayer, setCurrentPlayer] = useState(1)
+
   const [cards, setCards] = useState([])
   const [deck, setDeck] = useState([])
 
@@ -22,6 +24,8 @@ function App() {
       CardService.getCards()
       .then(cards => setCards(cards))
       // .then(deck => setDeck(deck))
+
+      // refillHand(playerOneHand)
       
   }, [])
 
@@ -40,9 +44,8 @@ const refillHand = (playerHand) => {
               randomizedHand.push(chosenCard)
               
       }
-      
       setPlayerOneHand(randomizedHand)
-      console.log("This is refillHand")
+      console.log(randomizedHand)
   }
 
 
@@ -54,7 +57,6 @@ const refillHand = (playerHand) => {
           <Link to="/playerTurn">Player Turn</Link>
         </navbar>
           
-       
           <Routes>
             <Route 
               path="/" 
@@ -72,6 +74,7 @@ const refillHand = (playerHand) => {
               setPlayerTwoHand={setPlayerTwoHand}
               deck={deck}
               refillHand={refillHand}
+              currentPlayer = {currentPlayer}
               />}
             />
           </Routes>

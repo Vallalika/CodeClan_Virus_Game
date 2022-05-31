@@ -3,7 +3,6 @@ import Card from "./Card"
 import styled from 'styled-components'
 
 
-
 const ListStyle = styled.ul `
 list-style-type: none;
 padding-left: 0;
@@ -14,18 +13,33 @@ const ItemStyle = styled.li `
 display: inline-block;
 `
 
-const PlayerHand = ({playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand}) => {
+
+const PlayerHand = ({playerOneHand, playerTwoHand, setPlayerOneHand, setPlayerTwoHand, currentPlayer}) => {
+    
+    const displayHand = () => {
+        console.log("displayHand executing before if")
+        if (currentPlayer === 1) {
+            console.log("within if")
+            const displayArrayOne = playerOneHand.map ((card) => {
+            return <ItemStyle> <Card key = {card._id} card = {card} /> </ItemStyle>
+            })
+            return displayArrayOne
+        } else {
+            console.log("Player number 2")
+            const displayArrayTwo = playerTwoHand.map ((card,index) => {
+                return <ItemStyle> <Card key = {card._id} card = {card} /> </ItemStyle>
+                })
+                return displayArrayTwo
+        }
+    }
 
     return (
         <>
-            <h3> Player Hand component </h3>
             <ListStyle>
-                <ItemStyle><Card> Card 1 </Card></ItemStyle>
-                <ItemStyle><Card> Card 2 </Card></ItemStyle>
-                <ItemStyle><Card> Card 3 </Card></ItemStyle>
+                { displayHand() }
             </ListStyle>
         </>
     )
-}
+    }
 
 export default PlayerHand
