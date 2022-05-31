@@ -62,6 +62,14 @@ function App() {
     setSelectedCard(Player2BoardArray)
   }
 
+  const add_organ = function (selectedCard){
+    let boardCopy = [...playerOneBoardArray]
+    boardCopy.push(selectedCard)
+    setPlayerOneBoardArray(boardCopy)
+    playerOneHand.splice(playerOneHand.indexOf(selectedCard),1)
+
+  }
+
   return (
     <>
       <Router>
@@ -91,6 +99,7 @@ function App() {
               playerTwoBoardArray={playerTwoBoardArray}
               onCardSelected={onCardSelected}
               onHandSelectedCard={onHandSelectedCard}
+              add_organ = {add_organ}
 
               />}
             />

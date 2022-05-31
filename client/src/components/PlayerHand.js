@@ -15,7 +15,7 @@ const ItemStyle = styled.li `
 display: inline-block;
 `
 
-const PlayerHand = ({playerOneHand, playerTwoHand, setPlayerOneHand, setPlayerTwoHand, currentPlayer, playerTwoBoardArray, onCardSelected, onHandSelectedCard}) => {
+const PlayerHand = ({playerOneHand, playerTwoHand, setPlayerOneHand, setPlayerTwoHand, currentPlayer, playerTwoBoardArray, onCardSelected, onHandSelectedCard,add_organ}) => {
     
     const displayHand = () => {
         console.log("displayHand executing before if")
@@ -40,10 +40,10 @@ const PlayerHand = ({playerOneHand, playerTwoHand, setPlayerOneHand, setPlayerTw
                 { displayHand() }
             </ListStyle>
 
-            <HandSelect playerOneHand={playerOneHand} onHandSelectedCard={onHandSelectedCard}/>
+            <HandSelect playerOneHand={playerOneHand} onHandSelectedCard={onHandSelectedCard} add_organ={add_organ}/>
             <p> to </p>
             <BoardSelect playerTwoBoardArray={playerTwoBoardArray}
-            onCardSelected={onCardSelected}/>
+            onCardSelected={onCardSelected} add_organ={add_organ}/>
         </>
     )
     }
