@@ -54,6 +54,14 @@ function App() {
     }
   }
 
+  const onHandSelectedCard = function (playerOneHand){
+    setHandSelectedCard(playerOneHand)
+  }
+  
+  const onCardSelected = function (Player2BoardArray){
+    setSelectedCard(Player2BoardArray)
+  }
+
   return (
     <>
       <Router>
