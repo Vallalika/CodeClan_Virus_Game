@@ -12,11 +12,18 @@ function App() {
   const [playerOneName, setPlayerOneName] = useState("")
   const [playerTwoName, setPlayerTwoName] = useState("")
 
-  const [playerOneHand, setPlayerOneHand] = useState([])
+  const [playerOneHand, setPlayerOneHand] = useState(["red heart"])
   const [playerTwoHand, setPlayerTwoHand] = useState([])
 
   const [cards, setCards] = useState([])
   const [deck, setDeck] = useState([])
+
+  const [playerOneBoardArray, setPlayerOneBoardArray] = useState([])
+  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState(["hello", "max", "silvia"])
+
+  const [selectedCard, setSelectedCard] = useState(null)
+
+
 
   useEffect(() => {
       CardService.getCards()
@@ -25,9 +32,22 @@ function App() {
       
   }, [])
 
-useEffect(()=>{
-  setDeck(cards)
-},[cards])
+  useEffect(()=>{
+    setDeck(cards)
+  },[cards])
+
+const onCardSelected = function (Player2BoardArray){
+  setSelectedCard(Player2BoardArray)
+}
+
+const playOrgan = () => {
+  let playerHand  = [...playerOneHand]
+  let boardCopy = [...playerOneBoardArray]
+
+
+
+
+}
 
 const refillHand = (playerHand) => {
   let randomizedHand = [...playerHand] //this is where we push our 3 randomised cards
@@ -44,6 +64,21 @@ const refillHand = (playerHand) => {
       setPlayerOneHand(randomizedHand)
       console.log("This is refillHand")
   }
+
+  const check_win = (boardArray) => {
+
+    let counter = 0
+    for (let card in boardArray){
+      if (card.score > 0) {
+        counter +=1
+      }
+    }
+    if (counter >= 4) {
+      const message = "Congrats you have won the game!"
+      return (message)
+    }
+
+}
 
 
   return (
@@ -72,12 +107,16 @@ const refillHand = (playerHand) => {
               setPlayerTwoHand={setPlayerTwoHand}
               deck={deck}
               refillHand={refillHand}
+              playerTwoBoardArray={playerTwoBoardArray}
+              onCardSelected={onCardSelected}
+
               />}
             />
           </Routes>
         
         
       </Router>
+
       {/* <CovatarsGameContainer /> */}
     </>
   );
