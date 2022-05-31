@@ -69,11 +69,11 @@ const refillHand = (playerHand) => {
       console.log("This is refillHand")
   }
 
-  const check_win = (boardArray) => {
+  const check_win = (playerTwoBoardArray) => {
 
     let counter = 0
-    for (let card in boardArray){
-      if (card.score > 0) {
+    for (let card in playerTwoBoardArray){
+      if (card.score >= 0) {
         counter +=1
       }
     }
