@@ -1,4 +1,3 @@
-import CovatarsGameContainer from './containers/CovatarsGameContainer';
 import './App.css';
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Link, Route} from "react-router-dom"
@@ -23,31 +22,30 @@ function App() {
   useEffect(() => {
       CardService.getCards()
       .then(cards => setCards(cards))
-      // .then(deck => setDeck(deck))
-
-      // refillHand(playerOneHand)
       
   }, [])
 
-useEffect(()=>{
-  setDeck(cards)
-},[cards])
+  useEffect(()=>{
+    setDeck(cards)
+  },[cards])
 
-const refillHand = (playerHand) => {
-  let randomizedHand = [...playerHand] //this is where we push our 3 randomised cards
-  let deckCopy = [...deck] 
+  const refillHand = (playerHand) => {
+    let randomizedHand = [...playerHand] //this is where we push our 3 randomised cards
+    let deckCopy = [...deck]
 
-          while(randomizedHand.length < 3){
-              let randomIndex = Math.floor(Math.random() * deckCopy.length)
-              let chosenCard = deckCopy[randomIndex]
-              deckCopy.splice(randomIndex,1)
-              randomizedHand.push(chosenCard)
-              
+    while(randomizedHand.length < 3){
+        let randomIndex = Math.floor(Math.random() * deckCopy.length)
+        let chosenCard = deckCopy[randomIndex]
+        deckCopy.splice(randomIndex,1)
+        randomizedHand.push(chosenCard)
+    
       }
+    if (currentPlayer === 1) {
       setPlayerOneHand(randomizedHand)
-      console.log(randomizedHand)
+    } else {
+      setPlayerTwoHand(randomizedHand)
+    }
   }
-
 
   return (
     <>

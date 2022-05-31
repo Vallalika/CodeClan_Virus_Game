@@ -37,7 +37,13 @@ const RightBoard = styled.section `
 const PlayerTurn = ({ playerOneName, playerTwoName, playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand, deck, refillHand, currentPlayer}) => {
 
 
-const onClick = () => {refillHand(playerOneHand)}
+const onClick = () => {
+    if (currentPlayer === 1) {
+        refillHand(playerOneHand)
+    } else {
+        refillHand(playerTwoHand)
+    }
+}
 
 // const refillHand = (playerHand, currentDeck, setPlayerHand) => {
 //     let randomizedHand = [...playerHand] //this is where we push our 3 randomised cards
