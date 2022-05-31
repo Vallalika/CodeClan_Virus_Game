@@ -11,7 +11,12 @@ function App() {
   const [playerOneName, setPlayerOneName] = useState("")
   const [playerTwoName, setPlayerTwoName] = useState("")
 
-  const [playerOneHand, setPlayerOneHand] = useState([])
+  const [playerOneHand, setPlayerOneHand] = useState([{
+    "score":1,
+    "color": "red",
+    "type": "cure",
+    "img_url":"./cards/red_cure.png"
+    }])
   const [playerTwoHand, setPlayerTwoHand] = useState([])
 
   const [currentPlayer, setCurrentPlayer] = useState(1)
@@ -20,7 +25,12 @@ function App() {
   const [deck, setDeck] = useState([])
 
   const [playerOneBoardArray, setPlayerOneBoardArray] = useState([])
-  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState([])
+  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState([{"score":0,
+  "color": "red",
+  "name": "heart",
+  "type": "organ",
+  "invulnerable": false,
+  "img_url":"./cards/red_organ.png"}])
 
   const [selectedCard, setSelectedCard] = useState(null)
   const [handSelectedCard, setHandSelectedCard] = useState(null)
@@ -90,6 +100,23 @@ function App() {
       }  
     }
     }
+
+    const play_cure = function(selectedCard){
+      // debugger
+      if(selectedCard.type === "cure"){
+        
+        let boardCopy = [...playerTwoBoardArray]
+        for (let card of boardCopy){
+          if(card.color === selectedCard.color){
+            card.score += selectedCard.score
+            setPlayerOneBoardArray(boardCopy)
+          
+          }
+          playerOneHand.splice(playerOneHand.indexOf(selectedCard),1)
+  
+        }  
+      }
+      }
   
 
   return (
@@ -123,6 +150,7 @@ function App() {
               onHandSelectedCard={onHandSelectedCard}
               add_organ = {add_organ}
               play_virus = {play_virus}
+              play_cure = {play_cure}
 
               />}
             />

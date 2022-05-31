@@ -1,13 +1,14 @@
 import React from "react";
 
-const HandSelect = ({playerOneHand, onHandSelectedCard,add_organ, play_virus}) => {
+const HandSelect = ({playerOneHand, onHandSelectedCard,add_organ, play_virus, play_cure}) => {
     const handleChange = function(event) {
         const chosenCard = playerOneHand[event.target.value]
         onHandSelectedCard(chosenCard)
         add_organ(chosenCard)
-        console.log("before")
+        
         play_virus(chosenCard)
-        console.log("after")
+        
+        play_cure(chosenCard)
         
     }
 
