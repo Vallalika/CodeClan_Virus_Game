@@ -16,7 +16,7 @@ const ItemStyle = styled.li `
 display: inline-block;
 `
 
-const PlayerHand = ({playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand, playerTwoBoardArray, onCardSelected}) => {
+const PlayerHand = ({playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand, playerTwoBoardArray, onCardSelected, onHandSelectedCard}) => {
 
     return (
         <>
@@ -30,7 +30,7 @@ const PlayerHand = ({playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwo
                 
             </ListStyle>
 
-            <HandSelect playerOneHand={playerOneHand} onCardSelected={onCardSelected}/>
+            <HandSelect playerOneHand={playerOneHand} onHandSelectedCard={onHandSelectedCard}/>
             <p> to </p>
             <BoardSelect playerTwoBoardArray={playerTwoBoardArray}
               onCardSelected={onCardSelected}/>

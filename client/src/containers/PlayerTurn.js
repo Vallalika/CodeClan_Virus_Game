@@ -34,7 +34,7 @@ const RightBoard = styled.section `
     grid-column: 3 / 5;
 `
 
-const PlayerTurn = ({ playerOneName, playerTwoName, playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand, deck, refillHand, playerTwoBoardArray, onCardSelected}) => {
+const PlayerTurn = ({ playerOneName, playerTwoName, playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand, deck, refillHand, playerTwoBoardArray, onCardSelected,onHandSelectedCard}) => {
 
 
 const onClick = () => {refillHand(playerOneHand)}
@@ -68,7 +68,9 @@ const onClick = () => {refillHand(playerOneHand)}
                         playerTwoHand={playerTwoHand}
                         setPlayerTwoHand={setPlayerTwoHand}
                         playerTwoBoardArray={playerTwoBoardArray}
-                        onCardSelected={onCardSelected} />
+                        onCardSelected={onCardSelected} 
+                        onHandSelectedCard={onHandSelectedCard}    
+                        />
 
                 </HandArea>
                 <LeftBoard>

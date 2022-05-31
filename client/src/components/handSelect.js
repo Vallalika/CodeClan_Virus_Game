@@ -1,13 +1,14 @@
 import React from "react";
 
-const HandSelect = ({playerOneHand, onCardSelected}) => {
+const HandSelect = ({playerOneHand, onHandSelectedCard}) => {
     const handleChange = function(event) {
+        debugger
         const chosenCard = playerOneHand[event.target.value]
-        onCardSelected(chosenCard)
+        onHandSelectedCard(chosenCard)
     }
 
     const cardOptions = playerOneHand.map((card, index) => {
-        return <option value = {index} key ={index}>{card} </option>
+        return <option value = {index} key ={index}>{card.color} {card.type} {card.name}</option>
 
     })
 

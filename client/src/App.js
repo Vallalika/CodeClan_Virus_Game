@@ -12,17 +12,17 @@ function App() {
   const [playerOneName, setPlayerOneName] = useState("")
   const [playerTwoName, setPlayerTwoName] = useState("")
 
-  const [playerOneHand, setPlayerOneHand] = useState(["red heart"])
+  const [playerOneHand, setPlayerOneHand] = useState([])
   const [playerTwoHand, setPlayerTwoHand] = useState([])
 
   const [cards, setCards] = useState([])
   const [deck, setDeck] = useState([])
 
   const [playerOneBoardArray, setPlayerOneBoardArray] = useState([])
-  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState(["hello", "max", "silvia"])
+  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState([])
 
   const [selectedCard, setSelectedCard] = useState(null)
-
+  const [handSelectedCard, setHandSelectedCard] = useState(null)
 
 
   useEffect(() => {
@@ -35,6 +35,10 @@ function App() {
   useEffect(()=>{
     setDeck(cards)
   },[cards])
+
+const onHandSelectedCard = function (playerOneHand){
+  setHandSelectedCard(playerOneHand)
+}
 
 const onCardSelected = function (Player2BoardArray){
   setSelectedCard(Player2BoardArray)
@@ -109,6 +113,7 @@ const refillHand = (playerHand) => {
               refillHand={refillHand}
               playerTwoBoardArray={playerTwoBoardArray}
               onCardSelected={onCardSelected}
+              onHandSelectedCard={onHandSelectedCard}
 
               />}
             />
