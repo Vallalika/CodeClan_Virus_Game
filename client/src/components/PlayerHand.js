@@ -1,7 +1,7 @@
 import React from "react"
 import Card from "./Card"
 import styled from 'styled-components'
-import BoardSelect from "./boardSelect"
+// import BoardSelect from "./boardSelect"
 import HandSelect from "./handSelect"
 
 
@@ -15,7 +15,8 @@ const ItemStyle = styled.li `
 display: inline-block;
 `
 
-const PlayerHand = ({playerOneHand, playerTwoHand, setPlayerOneHand, setPlayerTwoHand, currentPlayer, playerTwoBoardArray, onCardSelected, onHandSelectedCard}) => {
+const PlayerHand = ({playerOneHand, playerTwoHand, setPlayerOneHand, setPlayerTwoHand, currentPlayer, playerTwoBoardArray, onCardSelected, onHandSelectedCard,add_organ, play_virus, play_cure, checkBoard, 
+checkHand}) => {
     
     const displayHand = () => {
         console.log("displayHand executing before if")
@@ -40,10 +41,8 @@ const PlayerHand = ({playerOneHand, playerTwoHand, setPlayerOneHand, setPlayerTw
                 { displayHand() }
             </ListStyle>
 
-            <HandSelect playerOneHand={playerOneHand} onHandSelectedCard={onHandSelectedCard}/>
-            <p> to </p>
-            <BoardSelect playerTwoBoardArray={playerTwoBoardArray}
-            onCardSelected={onCardSelected}/>
+            <HandSelect playerOneHand={playerOneHand} playerTwoHand={playerTwoHand} onHandSelectedCard={onHandSelectedCard} add_organ={add_organ} play_virus={play_virus} play_cure={play_cure} currentPlayer={currentPlayer} checkBoard = {checkBoard}
+            checkHand = {checkHand}/>
         </>
     )
     }
