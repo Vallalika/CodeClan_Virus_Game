@@ -11,12 +11,19 @@ function App() {
   const [playerOneName, setPlayerOneName] = useState("")
   const [playerTwoName, setPlayerTwoName] = useState("")
 
-  const [playerOneHand, setPlayerOneHand] = useState([{
+  const [playerOneHand, setPlayerOneHand] = useState([ {
     "score":1,
     "color": "red",
     "type": "cure",
     "img_url":"./cards/red_cure.png"
-    }])
+    },
+    {
+      "score":-1,
+      "color": "red",
+      "type": "virus",
+      "img_url":"./cards/red_virus_04.png"
+      }
+  ])
   const [playerTwoHand, setPlayerTwoHand] = useState([])
 
   const [currentPlayer, setCurrentPlayer] = useState(1)
@@ -24,13 +31,13 @@ function App() {
   const [cards, setCards] = useState([])
   const [deck, setDeck] = useState([])
 
-  const [playerOneBoardArray, setPlayerOneBoardArray] = useState([])
-  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState([{"score":0,
+  const [playerOneBoardArray, setPlayerOneBoardArray] = useState([{"score":0,
   "color": "red",
   "name": "heart",
   "type": "organ",
   "invulnerable": false,
   "img_url":"./cards/red_organ.png"}])
+  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState([])
 
   const [selectedCard, setSelectedCard] = useState(null)
   const [handSelectedCard, setHandSelectedCard] = useState(null)
@@ -66,53 +73,89 @@ function App() {
     }
   }
 
-  const onHandSelectedCard = function (playerOneHand){
-    setHandSelectedCard(playerOneHand)
+  const onHandSelectedCard = function (playerHand){
+    setHandSelectedCard(playerHand)
   }
   
-  const onCardSelected = function (Player2BoardArray){
-    setSelectedCard(Player2BoardArray)
+  // const onCardSelected = function (PlayerBoardArray){
+  //   setSelectedCard(PlayerBoardArray)
+  // }
+
+  const checkBoard = function (currentPlayer, playerOneBoardArray, playerTwoBoardArray) {
+    if (currentPlayer === 1) {
+      return (playerOneBoardArray)
+    } else {
+      return (playerTwoBoardArray)
+    }
+  }
+
+  const checkHand = function (currentPlayer, playerOneHand, playerTwoHand) {
+    if (currentPlayer === 1) {
+      return (playerOneHand)
+    } else {
+      return (playerTwoHand)
+    }
+  }
+
+  const checkSetPlayerBoard = function (currentPlayer, setPlayerOneBoardArray, setPlayerTwoBoardArray) {
+    if (currentPlayer === 1) {
+      return (setPlayerOneBoardArray)
+    } else {
+      return (setPlayerTwoBoardArray)
+    }
   }
 
   const add_organ = function (selectedCard){
+    
+    let playerHand = checkHand(currentPlayer, playerOneHand, playerTwoHand)
+    let playerBoard = checkBoard(currentPlayer, playerOneBoardArray, playerTwoBoardArray)
+    let setPlayerBoard = checkSetPlayerBoard(currentPlayer, setPlayerOneBoardArray, setPlayerTwoBoardArray)
+    
     if (selectedCard.type === "organ"){
-    let boardCopy = [...playerOneBoardArray]
-    boardCopy.push(selectedCard)
-    setPlayerOneBoardArray(boardCopy)
-    playerOneHand.splice(playerOneHand.indexOf(selectedCard),1)
+        let boardCopy = [...playerBoard]
+        boardCopy.push(selectedCard)
+        setPlayerBoard(boardCopy)
+        playerHand.splice(playerHand.indexOf(selectedCard),1)
+      }
     }
 
-  }
-
   const play_virus = function(selectedCard){
-    // debugger
+    let playerHand = checkHand(currentPlayer, playerOneHand, playerTwoHand)
+    // Warning guys!!! not good practice arguments are inverted
+    let playerBoard = checkBoard(currentPlayer, playerTwoBoardArray, playerOneBoardArray)
+    let setPlayerBoard = checkSetPlayerBoard(currentPlayer, setPlayerTwoBoardArray, setPlayerOneBoardArray)
+    console.log(playerBoard)
+
     if(selectedCard.type === "virus"){
       
-      let boardCopy = [...playerTwoBoardArray]
+      let boardCopy = [...playerBoard]
       for (let card of boardCopy){
         if(card.type === "organ" && card.color === selectedCard.color){
           card.score += selectedCard.score
-          setPlayerTwoBoardArray(boardCopy)
+          setPlayerBoard(boardCopy)
         
         }
-        playerOneHand.splice(playerOneHand.indexOf(selectedCard),1)
+        playerHand.splice(playerHand.indexOf(selectedCard),1)
 
       }  
     }
     }
 
     const play_cure = function(selectedCard){
-      // debugger
+      let playerHand = checkHand(currentPlayer, playerOneHand, playerTwoHand)
+      let playerBoard = checkBoard(currentPlayer, playerOneBoardArray, playerTwoBoardArray)
+      let setPlayerBoard = checkSetPlayerBoard(currentPlayer, setPlayerOneBoardArray, setPlayerTwoBoardArray)
+
       if(selectedCard.type === "cure"){
         
-        let boardCopy = [...playerTwoBoardArray]
+        let boardCopy = [...playerBoard]
         for (let card of boardCopy){
           if(card.color === selectedCard.color){
             card.score += selectedCard.score
-            setPlayerOneBoardArray(boardCopy)
+            setPlayerBoard(boardCopy)
           
           }
-          playerOneHand.splice(playerOneHand.indexOf(selectedCard),1)
+          playerHand.splice(playerHand.indexOf(selectedCard),1)
   
         }  
       }
@@ -146,11 +189,14 @@ function App() {
               refillHand={refillHand}
               currentPlayer = {currentPlayer}
               playerTwoBoardArray={playerTwoBoardArray}
-              onCardSelected={onCardSelected}
+              // onCardSelected={onCardSelected}
               onHandSelectedCard={onHandSelectedCard}
               add_organ = {add_organ}
               play_virus = {play_virus}
               play_cure = {play_cure}
+              checkBoard = {checkBoard}
+              checkHand = {checkHand}
+              
 
               />}
             />
