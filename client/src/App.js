@@ -25,6 +25,8 @@ function App() {
   const [selectedCard, setSelectedCard] = useState(null)
   const [handSelectedCard, setHandSelectedCard] = useState(null)
 
+  
+
 
   useEffect(() => {
       CardService.getCards()
@@ -63,12 +65,32 @@ function App() {
   }
 
   const add_organ = function (selectedCard){
+    if (selectedCard.type === "organ"){
     let boardCopy = [...playerOneBoardArray]
     boardCopy.push(selectedCard)
     setPlayerOneBoardArray(boardCopy)
     playerOneHand.splice(playerOneHand.indexOf(selectedCard),1)
+    }
 
   }
+
+  const play_virus = function(selectedCard){
+    // debugger
+    if(selectedCard.type === "virus"){
+      
+      let boardCopy = [...playerTwoBoardArray]
+      for (let card of boardCopy){
+        if(card.type === "organ" && card.color === selectedCard.color){
+          card.score += selectedCard.score
+          setPlayerTwoBoardArray(boardCopy)
+        
+        }
+        playerOneHand.splice(playerOneHand.indexOf(selectedCard),1)
+
+      }  
+    }
+    }
+  
 
   return (
     <>
@@ -100,6 +122,7 @@ function App() {
               onCardSelected={onCardSelected}
               onHandSelectedCard={onHandSelectedCard}
               add_organ = {add_organ}
+              play_virus = {play_virus}
 
               />}
             />
