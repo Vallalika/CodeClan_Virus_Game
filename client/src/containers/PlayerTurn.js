@@ -58,9 +58,9 @@ const onClick = () => {refillHand(playerOneHand)}
     return (
         <>
             <GridWrap>
-                <a> Link to instructions</a>
+                <a id="a" href="https://www.goliathgames.us/wp-content/uploads/2019/07/10866710_v3_0419_Virus_IM_ENG-compressed.pdf"> <img id="icon" src="./instructions_icon.svg" alt="instructions icon"/> </a>
                 <ScreenTitle> {playerOneName}'s Turn</ScreenTitle>
-                <img id = "deck" src="./deck_icon.svg" onClick={onClick} />
+                <img id = "deck" src="./deck_icon.svg" alt="image of deck" onClick={onClick} />
                 <HandArea>
                     <PlayerHand 
                         playerOneHand={playerOneHand}
