@@ -1,4 +1,3 @@
-import CovatarsGameContainer from './containers/CovatarsGameContainer';
 import './App.css';
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Link, Route} from "react-router-dom"
@@ -15,6 +14,8 @@ function App() {
   const [playerOneHand, setPlayerOneHand] = useState([])
   const [playerTwoHand, setPlayerTwoHand] = useState([])
 
+  const [currentPlayer, setCurrentPlayer] = useState(1)
+
   const [cards, setCards] = useState([])
   const [deck, setDeck] = useState([])
 
@@ -28,7 +29,6 @@ function App() {
   useEffect(() => {
       CardService.getCards()
       .then(cards => setCards(cards))
-      // .then(deck => setDeck(deck))
       
   }, [])
 
@@ -36,54 +36,31 @@ function App() {
     setDeck(cards)
   },[cards])
 
-const onHandSelectedCard = function (playerOneHand){
-  setHandSelectedCard(playerOneHand)
-}
+  const refillHand = (playerHand) => {
+    let randomizedHand = [...playerHand] //this is where we push our 3 randomised cards
+    let deckCopy = [...deck]
 
-const onCardSelected = function (Player2BoardArray){
-  setSelectedCard(Player2BoardArray)
-}
-
-const playOrgan = () => {
-  let playerHand  = [...playerOneHand]
-  let boardCopy = [...playerOneBoardArray]
-
-
-
-
-}
-
-const refillHand = (playerHand) => {
-  let randomizedHand = [...playerHand] //this is where we push our 3 randomised cards
-  let deckCopy = [...deck] 
-
-          while(randomizedHand.length < 3){
-              let randomIndex = Math.floor(Math.random() * deckCopy.length)
-              let chosenCard = deckCopy[randomIndex]
-              deckCopy.splice(randomIndex,1)
-              randomizedHand.push(chosenCard)
-              
+    while(randomizedHand.length < 3){
+        let randomIndex = Math.floor(Math.random() * deckCopy.length)
+        let chosenCard = deckCopy[randomIndex]
+        deckCopy.splice(randomIndex,1)
+        randomizedHand.push(chosenCard)
+    
       }
-      
+    if (currentPlayer === 1) {
       setPlayerOneHand(randomizedHand)
-      console.log("This is refillHand")
+    } else {
+      setPlayerTwoHand(randomizedHand)
+    }
   }
 
-  const check_win = (boardArray) => {
-
-    let counter = 0
-    for (let card in boardArray){
-      if (card.score > 0) {
-        counter +=1
-      }
-    }
-    if (counter >= 4) {
-      const message = "Congrats you have won the game!"
-      return (message)
-    }
-
-}
-
+  const onHandSelectedCard = function (playerOneHand){
+    setHandSelectedCard(playerOneHand)
+  }
+  
+  const onCardSelected = function (Player2BoardArray){
+    setSelectedCard(Player2BoardArray)
+  }
 
   return (
     <>
@@ -93,7 +70,6 @@ const refillHand = (playerHand) => {
           <Link to="/playerTurn">Player Turn</Link>
         </navbar>
           
-       
           <Routes>
             <Route 
               path="/" 
@@ -111,6 +87,7 @@ const refillHand = (playerHand) => {
               setPlayerTwoHand={setPlayerTwoHand}
               deck={deck}
               refillHand={refillHand}
+              currentPlayer = {currentPlayer}
               playerTwoBoardArray={playerTwoBoardArray}
               onCardSelected={onCardSelected}
               onHandSelectedCard={onHandSelectedCard}

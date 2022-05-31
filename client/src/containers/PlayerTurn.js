@@ -34,39 +34,30 @@ const RightBoard = styled.section `
     grid-column: 3 / 5;
 `
 
-const PlayerTurn = ({ playerOneName, playerTwoName, playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand, deck, refillHand, playerTwoBoardArray, onCardSelected,onHandSelectedCard}) => {
+const PlayerTurn = ({ playerOneName, playerTwoName, playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand, deck, refillHand, playerTwoBoardArray, onCardSelected,onHandSelectedCard, currentPlayer}) => {
 
 
-const onClick = () => {refillHand(playerOneHand)}
-
-// const refillHand = (playerHand, currentDeck, setPlayerHand) => {
-//     let randomizedHand = [...playerHand] //this is where we push our 3 randomised cards
-//     let deckCopy = [...currentDeck] 
-
-//             while(randomizedHand.length < 3){
-//                 let randomIndex = Math.floor(Math.random() * deckCopy.length)
-//                 let chosenCard = deckCopy[randomIndex]
-//                 deckCopy.splice(randomIndex,1)
-//                 randomizedHand.push(chosenCard)
-                
-//         }
-//         console.log(deckCopy)
-//         setPlayerHand(randomizedHand)
-//     console.log("This is refillHand")
-//     }
+const onClick = () => {
+    if (currentPlayer === 1) {
+        refillHand(playerOneHand)
+    } else {
+        refillHand(playerTwoHand)
+    }
+}
 
     return (
         <>
             <GridWrap>
-                <a> Link to instructions</a>
+                <a id="a" href="https://www.goliathgames.us/wp-content/uploads/2019/07/10866710_v3_0419_Virus_IM_ENG-compressed.pdf"> <img id="icon" src="./instructions_icon.svg" alt="instructions icon"/> </a>
                 <ScreenTitle> {playerOneName}'s Turn</ScreenTitle>
-                <button onClick={onClick}>Refill Hand</button>
+                <img id = "deck" src="./deck_icon.svg" alt="image of deck" onClick={onClick} />
                 <HandArea>
                     <PlayerHand 
                         playerOneHand={playerOneHand}
                         setPlayerOneHand={setPlayerOneHand}
                         playerTwoHand={playerTwoHand}
                         setPlayerTwoHand={setPlayerTwoHand}
+                        currentPlayer = {currentPlayer}
                         playerTwoBoardArray={playerTwoBoardArray}
                         onCardSelected={onCardSelected} 
                         onHandSelectedCard={onHandSelectedCard}    

@@ -5,7 +5,6 @@ import BoardSelect from "./boardSelect"
 import HandSelect from "./handSelect"
 
 
-
 const ListStyle = styled.ul `
 list-style-type: none;
 padding-left: 0;
@@ -16,26 +15,37 @@ const ItemStyle = styled.li `
 display: inline-block;
 `
 
-const PlayerHand = ({playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand, playerTwoBoardArray, onCardSelected, onHandSelectedCard}) => {
+const PlayerHand = ({playerOneHand, playerTwoHand, setPlayerOneHand, setPlayerTwoHand, currentPlayer, playerTwoBoardArray, onCardSelected, onHandSelectedCard}) => {
+    
+    const displayHand = () => {
+        console.log("displayHand executing before if")
+        if (currentPlayer === 1) {
+            console.log("within if")
+            const displayArrayOne = playerOneHand.map ((card) => {
+            return <ItemStyle> <Card key = {card._id} card = {card} /> </ItemStyle>
+            })
+            return displayArrayOne
+        } else {
+            console.log("Player number 2")
+            const displayArrayTwo = playerTwoHand.map ((card,index) => {
+                return <ItemStyle> <Card key = {card._id} card = {card} /> </ItemStyle>
+                })
+                return displayArrayTwo
+        }
+    }
 
     return (
         <>
-            <h3> Player Hand component </h3>
             <ListStyle>
-                <ItemStyle><Card> Card 1 </Card></ItemStyle>
-                
-                <ItemStyle><Card> Card 2 </Card></ItemStyle>
-            
-                <ItemStyle><Card> Card 3 </Card></ItemStyle>
-                
+                { displayHand() }
             </ListStyle>
 
             <HandSelect playerOneHand={playerOneHand} onHandSelectedCard={onHandSelectedCard}/>
             <p> to </p>
             <BoardSelect playerTwoBoardArray={playerTwoBoardArray}
-              onCardSelected={onCardSelected}/>
+            onCardSelected={onCardSelected}/>
         </>
     )
-}
+    }
 
 export default PlayerHand
