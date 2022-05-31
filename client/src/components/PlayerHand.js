@@ -1,6 +1,8 @@
 import React from "react"
 import Card from "./Card"
 import styled from 'styled-components'
+import BoardSelect from "./boardSelect"
+import HandSelect from "./handSelect"
 
 
 
@@ -14,16 +16,24 @@ const ItemStyle = styled.li `
 display: inline-block;
 `
 
-const PlayerHand = ({playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand}) => {
+const PlayerHand = ({playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand, playerTwoBoardArray, onCardSelected, onHandSelectedCard}) => {
 
     return (
         <>
             <h3> Player Hand component </h3>
             <ListStyle>
                 <ItemStyle><Card> Card 1 </Card></ItemStyle>
+                
                 <ItemStyle><Card> Card 2 </Card></ItemStyle>
+            
                 <ItemStyle><Card> Card 3 </Card></ItemStyle>
+                
             </ListStyle>
+
+            <HandSelect playerOneHand={playerOneHand} onHandSelectedCard={onHandSelectedCard}/>
+            <p> to </p>
+            <BoardSelect playerTwoBoardArray={playerTwoBoardArray}
+              onCardSelected={onCardSelected}/>
         </>
     )
 }
