@@ -19,6 +19,13 @@ function App() {
   const [cards, setCards] = useState([])
   const [deck, setDeck] = useState([])
 
+  const [playerOneBoardArray, setPlayerOneBoardArray] = useState([])
+  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState([])
+
+  const [selectedCard, setSelectedCard] = useState(null)
+  const [handSelectedCard, setHandSelectedCard] = useState(null)
+
+
   useEffect(() => {
       CardService.getCards()
       .then(cards => setCards(cards))
@@ -73,12 +80,17 @@ function App() {
               deck={deck}
               refillHand={refillHand}
               currentPlayer = {currentPlayer}
+              playerTwoBoardArray={playerTwoBoardArray}
+              onCardSelected={onCardSelected}
+              onHandSelectedCard={onHandSelectedCard}
+
               />}
             />
           </Routes>
         
         
       </Router>
+
       {/* <CovatarsGameContainer /> */}
     </>
   );

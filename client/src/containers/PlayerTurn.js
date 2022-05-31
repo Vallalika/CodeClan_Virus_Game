@@ -34,7 +34,7 @@ const RightBoard = styled.section `
     grid-column: 3 / 5;
 `
 
-const PlayerTurn = ({ playerOneName, playerTwoName, playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand, deck, refillHand, currentPlayer}) => {
+const PlayerTurn = ({ playerOneName, playerTwoName, playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand, deck, refillHand, playerTwoBoardArray, onCardSelected,onHandSelectedCard, currentPlayer}) => {
 
 
 const onClick = () => {
@@ -44,22 +44,6 @@ const onClick = () => {
         refillHand(playerTwoHand)
     }
 }
-
-// const refillHand = (playerHand, currentDeck, setPlayerHand) => {
-//     let randomizedHand = [...playerHand] //this is where we push our 3 randomised cards
-//     let deckCopy = [...currentDeck] 
-
-//             while(randomizedHand.length < 3){
-//                 let randomIndex = Math.floor(Math.random() * deckCopy.length)
-//                 let chosenCard = deckCopy[randomIndex]
-//                 deckCopy.splice(randomIndex,1)
-//                 randomizedHand.push(chosenCard)
-                
-//         }
-//         console.log(deckCopy)
-//         setPlayerHand(randomizedHand)
-//     console.log("This is refillHand")
-//     }
 
     return (
         <>
@@ -73,7 +57,12 @@ const onClick = () => {
                         setPlayerOneHand={setPlayerOneHand}
                         playerTwoHand={playerTwoHand}
                         setPlayerTwoHand={setPlayerTwoHand}
-                        currentPlayer = {currentPlayer} />
+                        currentPlayer = {currentPlayer}
+                        playerTwoBoardArray={playerTwoBoardArray}
+                        onCardSelected={onCardSelected} 
+                        onHandSelectedCard={onHandSelectedCard}    
+                        />
+
                 </HandArea>
                 <LeftBoard>
                     <PlayerBoard />
