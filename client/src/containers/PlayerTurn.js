@@ -60,7 +60,7 @@ const onClick = () => {refillHand(playerOneHand)}
             <GridWrap>
                 <a> Link to instructions</a>
                 <ScreenTitle> {playerOneName}'s Turn</ScreenTitle>
-                <button onClick={onClick}>Refill Hand</button>
+                <img id = "deck" src="./deck_icon.svg" onClick={onClick} />
                 <HandArea>
                     <PlayerHand 
                         playerOneHand={playerOneHand}
