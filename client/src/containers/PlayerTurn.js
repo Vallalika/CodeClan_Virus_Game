@@ -71,9 +71,6 @@ const playerName = () => {
     }}
 
 const onClickDelete = () => {
-    // let playerHand = checkHand(currentPlayer, playerOneHand, playerTwoHand)
-    
-
     let setPlayerHand = checkSetPlayerHand(currentPlayer, setPlayerOneHand, setPlayerTwoHand)
 
     setPlayerHand([])
