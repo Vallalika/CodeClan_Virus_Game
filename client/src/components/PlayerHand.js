@@ -19,21 +19,21 @@ const PlayerHand = ({playerOneHand, playerTwoHand, setPlayerOneHand, setPlayerTw
 checkHand}) => {
     
     const displayHand = () => {
-        console.log("displayHand executing before if")
         if (currentPlayer === 1) {
-            console.log("within if")
             const displayArrayOne = playerOneHand.map ((card) => {
             return <ItemStyle> <Card key = {card._id} card = {card} /> </ItemStyle>
             })
             return displayArrayOne
         } else {
-            console.log("Player number 2")
             const displayArrayTwo = playerTwoHand.map ((card,index) => {
                 return <ItemStyle> <Card key = {card._id} card = {card} /> </ItemStyle>
                 })
                 return displayArrayTwo
         }
     }
+
+
+
 
     return (
         <>

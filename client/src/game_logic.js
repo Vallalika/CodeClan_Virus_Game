@@ -26,7 +26,7 @@
 //     // if(organCard.score>=2)
 //     // console.log("Sorry, this card is protected")
 // }
-(player_hand.length < 3)
+// (player_hand.length < 3)
 // const refill_hand = (deck) => {
 //    do{ 
 //     const index = Math.random.indexOf(deck)
