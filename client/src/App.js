@@ -36,8 +36,33 @@ function App() {
   "name": "heart",
   "type": "organ",
   "invulnerable": false,
+  "img_url":"./cards/red_organ.png"},{"score":0,
+  "color": "red",
+  "name": "heart",
+  "type": "organ",
+  "invulnerable": false,
+  "img_url":"./cards/red_organ.png"},{"score":0,
+  "color": "red",
+  "name": "heart",
+  "type": "organ",
+  "invulnerable": false,
   "img_url":"./cards/red_organ.png"}])
-  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState([])
+  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState([{"score":0,
+  "color": "red",
+  "name": "heart",
+  "type": "organ",
+  "invulnerable": false,
+  "img_url":"./cards/red_organ.png"},{"score":0,
+  "color": "red",
+  "name": "heart",
+  "type": "organ",
+  "invulnerable": false,
+  "img_url":"./cards/red_organ.png"},{"score":0,
+  "color": "red",
+  "name": "heart",
+  "type": "organ",
+  "invulnerable": false,
+  "img_url":"./cards/red_organ.png"}])
 
   const [selectedCard, setSelectedCard] = useState(null)
   const [handSelectedCard, setHandSelectedCard] = useState(null)
@@ -124,7 +149,7 @@ function App() {
     // Warning guys!!! not good practice arguments are inverted
     let playerBoard = checkBoard(currentPlayer, playerTwoBoardArray, playerOneBoardArray)
     let setPlayerBoard = checkSetPlayerBoard(currentPlayer, setPlayerTwoBoardArray, setPlayerOneBoardArray)
-    console.log(playerBoard)
+    // console.log(playerBoard)
 
     if(selectedCard.type === "virus"){
       
@@ -188,6 +213,7 @@ function App() {
               deck={deck}
               refillHand={refillHand}
               currentPlayer = {currentPlayer}
+              playerOneBoardArray={playerOneBoardArray}
               playerTwoBoardArray={playerTwoBoardArray}
               // onCardSelected={onCardSelected}
               onHandSelectedCard={onHandSelectedCard}
