@@ -29,7 +29,6 @@ const PlayerBoard = ({playerBoardArray}) => {
         // }
         // else{
             const displayArrayOne = playerBoardArray.map ((card) => {
-                // return (console.log("hello"))
                 
                 return <ItemStyle>  <Card key = {card._id} card = {card}></Card> </ItemStyle> 
             })

@@ -1,9 +1,10 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Routes, Link, Route} from "react-router-dom"
+import {BrowserRouter as Router, Routes, Link, Route, useNavigate} from "react-router-dom"
 import PlayerCreation from './containers/PlayerCreation';
 import PlayerTurn from './containers/PlayerTurn';
 import {CardService} from './services/GameServices';
+import WinnerPage from './components/WinnerPage';
 
 
 function App() {
@@ -19,8 +20,22 @@ function App() {
   const [cards, setCards] = useState([])
   const [deck, setDeck] = useState([])
 
-  const [playerOneBoardArray, setPlayerOneBoardArray] = useState([])
-  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState([])
+  const [playerOneBoardArray, setPlayerOneBoardArray] = useState([{
+    "score":0,
+    "color": "red",
+    "name": "heart",
+    "type": "organ",
+    "invulnerable": false,
+    "img_url":"./cards/red_organ.png"
+}])
+  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState([{
+    "score":0,
+    "color": "red",
+    "name": "heart",
+    "type": "organ",
+    "invulnerable": false,
+    "img_url":"./cards/red_organ.png"
+}])
 
   const [selectedCard, setSelectedCard] = useState(null)
   const [handSelectedCard, setHandSelectedCard] = useState(null)
@@ -107,7 +122,6 @@ function App() {
     // Warning guys!!! not good practice arguments are inverted
     let playerBoard = checkBoard(currentPlayer, playerTwoBoardArray, playerOneBoardArray)
     let setPlayerBoard = checkSetPlayerBoard(currentPlayer, setPlayerTwoBoardArray, setPlayerOneBoardArray)
-    // console.log(playerBoard)
 
     if(selectedCard.type === "virus"){
       
@@ -116,9 +130,9 @@ function App() {
         if(card.type === "organ" && card.color === selectedCard.color){
           card.score += selectedCard.score
           setPlayerBoard(boardCopy)
-        
+          playerHand.splice(playerHand.indexOf(selectedCard),1)
+
         }
-        playerHand.splice(playerHand.indexOf(selectedCard),1)
 
       }  
     }
@@ -143,6 +157,19 @@ function App() {
         }  
       }
       }
+
+      const check_win = function(boardArray){
+        let counter = 0
+        boardArray.forEach(card => {
+            if (card.score >= 0) {
+            counter +=1
+            }
+        })
+        if (counter >= 4) {
+            return(true)
+            
+        }
+    }
   
 
   return (
@@ -151,6 +178,8 @@ function App() {
         <navbar>
           <Link to="/">Home</Link>
           <Link to="/playerTurn">Player Turn</Link>
+          <Link to="/winnerpage">Player Turn</Link>
+
         </navbar>
           
           <Routes>
@@ -181,10 +210,15 @@ function App() {
               checkBoard = {checkBoard}
               checkHand = {checkHand}
               setCurrentPlayer = {setCurrentPlayer}
+              check_win = {check_win}
               
 
               />}
             />
+            <Route
+              path="/winnerpage"
+              element = {<WinnerPage />}>
+            </Route>
           </Routes>
         
         
