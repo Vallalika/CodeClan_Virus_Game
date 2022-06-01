@@ -46,18 +46,27 @@ const onClick = () => {
 }
 
 const onNextTurnClick = () => {
-    debugger
+    
     if (currentPlayer === 1){
         setCurrentPlayer(2)
     }
     else{setCurrentPlayer(1)}
 }
 
+const playerName = () => {
+    if (currentPlayer === 1){
+        return(playerOneName)
+    }
+    else{
+        return(playerTwoName)
+    }}
+
+
     return (
         <>
             <GridWrap>
                 <a id="a" href="https://www.goliathgames.us/wp-content/uploads/2019/07/10866710_v3_0419_Virus_IM_ENG-compressed.pdf"> <img id="icon" src="./instructions_icon.svg" alt="instructions icon"/> </a>
-                <ScreenTitle> {playerOneName}'s Turn</ScreenTitle>
+                <ScreenTitle> {playerName()}'s Turn</ScreenTitle>
                 <img id = "deck" src="./deck_icon.svg" alt="image of deck" onClick={onClick} />
                 <HandArea>
                     <PlayerHand 
