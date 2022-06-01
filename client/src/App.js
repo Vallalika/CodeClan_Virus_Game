@@ -115,12 +115,13 @@ function App() {
     let canplay = null
 
     if (playerBoard.length < 4){
-      playerBoard.forEach((card) => {
-        if(card.color === selectedCard.color){
-          return canplay = false
-        }
-        else{return canplay = true}
-      })
+      canplay = playerBoard.every((card) => card.color !==selectedCard.color
+        
+        // if(card.color === selectedCard.color){
+        //   return canplay = false
+        // }
+        // else{return canplay = true}
+      )
       if (selectedCard.type === "organ" && canplay === true){
         let boardCopy = [...playerBoard]
         boardCopy.push(selectedCard)
