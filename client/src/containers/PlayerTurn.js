@@ -21,10 +21,13 @@ const GridWrap = styled.main`
 const ScreenTitle = styled.h2 `
     grid-column: 2 / 4;
     color: rgb(85, 240, 28);
+    font-size:2em;
 `
 
 const HandArea = styled.section `
     grid-column: 1 / 5;
+    min-height: auto;
+    max-height: 800px;
 `
 const LeftBoard = styled.section `
     grid-row: 3;
@@ -32,6 +35,8 @@ const LeftBoard = styled.section `
     background-color: rgb(247, 237, 98);
     border-radius: 15px;
     min-width: 80%;
+    min-height: 300px;
+    margin-top: 80px;
 `
 
 const RightBoard = styled.section `
@@ -40,6 +45,8 @@ const RightBoard = styled.section `
     background-color: rgb(247, 237, 98);
     border-radius: 15px;
     min-width: 80%;
+    min-height: 300px;
+    margin-top: 80px;
 `
 
 const PlayerTurn = ({ playerOneName, playerTwoName, playerOneHand, playerTwoHand,setPlayerOneHand, setPlayerTwoHand, refillHand, onCardSelected,onHandSelectedCard, currentPlayer, setCurrentPlayer,  add_organ, play_virus, play_cure, checkBoard, checkHand, playerOneBoardArray, playerTwoBoardArray, check_win, checkSetPlayerHand}) => {
@@ -114,9 +121,11 @@ const onClickDelete = () => {
 
                 </HandArea>
                 <LeftBoard>
+                    <h4 class="board-name">{playerOneName}'s Board </h4>
                     <PlayerBoard playerBoardArray={playerOneBoardArray}/>
                 </LeftBoard>
                 <RightBoard>
+                    <h4 class="board-name">{playerTwoName}'s Board </h4>
                     <PlayerBoard  playerBoardArray={playerTwoBoardArray}/>
                 </RightBoard>
             </GridWrap>
