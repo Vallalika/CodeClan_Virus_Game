@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 const PlayerCreation = ({setPlayerOneName, setPlayerTwoName}) => {
 
-    // const [playerOneName, setPlayerOneName] = useState("")
-    // const [playerTwoName, setPlayerTwoName] = useState("")
 
     const playerOneChange = (event) => {
         setPlayerOneName(event.target.value)
@@ -12,14 +10,6 @@ const PlayerCreation = ({setPlayerOneName, setPlayerTwoName}) => {
     const playerTwoChange = (event) => {
         setPlayerTwoName(event.target.value)
     }
-
-    // const onSubmit = (event) => {
-    //     event.preventDefault()
-
-    //     return(
-
-    //     )
-    // }
 
     return (
         <>
@@ -31,12 +21,11 @@ const PlayerCreation = ({setPlayerOneName, setPlayerTwoName}) => {
                 <h1><img id="logo" src="./covatars_logo.png" alt="logo"/></h1>
                 <div id="h1">.</div>
             </div>
-            <form id="form"> {/* onSubmit={onSubmit} */}
+            <form id="form"> 
                 <div id="players-form">
                     <h2>Player 1 </h2>
                     <input type="text" id="name" onChange={playerOneChange} required/>
                 </div>
-                {/* <input type="submit" value="Start" id="start-button"/> */}
                 <Link to="/playerTurn" id="start-button">START</Link>
                 <div id="players-form">
                     <h2>Player 2 </h2>

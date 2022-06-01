@@ -1,6 +1,6 @@
 import React from "react";
 
-const HandSelect = ({playerOneHand, playerTwoHand, onHandSelectedCard,add_organ, play_virus, play_cure, currentPlayer, checkBoard, checkHand}) => {
+const HandSelect = ({playerOneHand, playerTwoHand, onHandSelectedCard,add_organ, play_virus, play_cure, currentPlayer, checkHand}) => {
     const handleChange = function(event) {
         let chosenCard
         if (currentPlayer ===1){
