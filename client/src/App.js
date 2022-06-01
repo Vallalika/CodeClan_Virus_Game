@@ -74,10 +74,6 @@ function App() {
   const onHandSelectedCard = function (playerHand){
     setHandSelectedCard(playerHand)
   }
-  
-  // const onCardSelected = function (PlayerBoardArray){
-  //   setSelectedCard(PlayerBoardArray)
-  // }
 
   const checkBoard = function (currentPlayer, playerOneBoardArray, playerTwoBoardArray) {
     if (currentPlayer === 1) {
@@ -150,9 +146,9 @@ function App() {
           if(card.color === selectedCard.color){
             card.score += selectedCard.score
             setPlayerBoard(boardCopy)
-          
+            playerHand.splice(playerHand.indexOf(selectedCard),1)
           }
-          playerHand.splice(playerHand.indexOf(selectedCard),1)
+          
   
         }  
       }
@@ -175,12 +171,12 @@ function App() {
   return (
     <>
       <Router>
-        <navbar>
+        {/* <navbar>
           <Link to="/">Home</Link>
           <Link to="/playerTurn">Player Turn</Link>
           <Link to="/winnerpage">Player Turn</Link>
 
-        </navbar>
+        </navbar> */}
           
           <Routes>
             <Route 
@@ -197,12 +193,10 @@ function App() {
               setPlayerOneHand={setPlayerOneHand}
               playerTwoHand={playerTwoHand}
               setPlayerTwoHand={setPlayerTwoHand}
-              deck={deck}
               refillHand={refillHand}
               currentPlayer = {currentPlayer}
               playerOneBoardArray={playerOneBoardArray}
               playerTwoBoardArray={playerTwoBoardArray}
-              // onCardSelected={onCardSelected}
               onHandSelectedCard={onHandSelectedCard}
               add_organ = {add_organ}
               play_virus = {play_virus}
@@ -224,7 +218,6 @@ function App() {
         
       </Router>
 
-      {/* <CovatarsGameContainer /> */}
     </>
   );
 }

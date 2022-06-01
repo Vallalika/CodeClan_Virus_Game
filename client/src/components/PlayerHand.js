@@ -1,8 +1,8 @@
 import React from "react"
-import Card from "./Card"
+import HandCard from "./HandCard"
 import styled from 'styled-components'
 // import BoardSelect from "./boardSelect"
-import HandSelect from "./handSelect"
+import HandSelect from "./HandSelect"
 
 
 const ListStyle = styled.ul `
@@ -15,18 +15,18 @@ const ItemStyle = styled.li `
 display: inline-block;
 `
 
-const PlayerHand = ({playerOneHand, playerTwoHand, setPlayerOneHand, setPlayerTwoHand, currentPlayer, playerTwoBoardArray, onCardSelected, onHandSelectedCard,add_organ, play_virus, play_cure, checkBoard, 
+const PlayerHand = ({playerOneHand, playerTwoHand, currentPlayer, onHandSelectedCard,add_organ, play_virus, play_cure, checkBoard, 
 checkHand}) => {
     
     const displayHand = () => {
         if (currentPlayer === 1) {
             const displayArrayOne = playerOneHand.map ((card) => {
-            return <ItemStyle> <Card key = {card._id} card = {card} /> </ItemStyle>
+            return <ItemStyle> <HandCard key = {card._id} card = {card} /> </ItemStyle>
             })
             return displayArrayOne
         } else {
             const displayArrayTwo = playerTwoHand.map ((card,index) => {
-                return <ItemStyle> <Card key = {card._id} card = {card} /> </ItemStyle>
+                return <ItemStyle> <HandCard key = {card._id} card = {card} /> </ItemStyle>
                 })
                 return displayArrayTwo
         }
