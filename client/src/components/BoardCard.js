@@ -12,13 +12,13 @@ const BoardCard = ({card}) => {
     else if(card.score ===1 && card.type ==="organ"){
         message = "protected"
     }
-    else if(card.score ===2 && card.type ==="organ"){
+    else if(card.score >=2 && card.type ==="organ"){
         message = "invulnerable"
     }
     else if(card.score === -1 && card.type ==="organ"){
         message = "infected"
     }
-    else if(card.score === -2 && card.type ==="organ"){
+    else if(card.score <= -2 && card.type ==="organ"){
         message ="destroyed"}
 
 

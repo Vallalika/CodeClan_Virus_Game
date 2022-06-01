@@ -99,19 +99,36 @@ function App() {
     }
   }
 
+  const checkSetPlayerHand = function (currentPlayer, setPlayerOneHand, setPlayerTwoHand) {
+    if (currentPlayer === 1) {
+      return (setPlayerOneHand)
+    } else {
+      return (setPlayerTwoHand)
+    }
+  }
+
   const add_organ = function (selectedCard){
     
     let playerHand = checkHand(currentPlayer, playerOneHand, playerTwoHand)
     let playerBoard = checkBoard(currentPlayer, playerOneBoardArray, playerTwoBoardArray)
     let setPlayerBoard = checkSetPlayerBoard(currentPlayer, setPlayerOneBoardArray, setPlayerTwoBoardArray)
-    
-    if (selectedCard.type === "organ"){
+    let canplay = null
+
+    if (playerBoard.length < 4){
+      playerBoard.forEach((card) => {
+        if(card.color === selectedCard.color){
+          return canplay = false
+        }
+        else{return canplay = true}
+      })
+      if (selectedCard.type === "organ" && canplay === true){
         let boardCopy = [...playerBoard]
         boardCopy.push(selectedCard)
         setPlayerBoard(boardCopy)
         playerHand.splice(playerHand.indexOf(selectedCard),1)
       }
-    }
+    }}
+    
 
   const play_virus = function(selectedCard){
     let playerHand = checkHand(currentPlayer, playerOneHand, playerTwoHand)
@@ -205,6 +222,7 @@ function App() {
               checkHand = {checkHand}
               setCurrentPlayer = {setCurrentPlayer}
               check_win = {check_win}
+              checkSetPlayerHand = {checkSetPlayerHand}
               
 
               />}
