@@ -11,19 +11,7 @@ function App() {
   const [playerOneName, setPlayerOneName] = useState("")
   const [playerTwoName, setPlayerTwoName] = useState("")
 
-  const [playerOneHand, setPlayerOneHand] = useState([ {
-    "score":1,
-    "color": "red",
-    "type": "cure",
-    "img_url":"./cards/red_cure.png"
-    },
-    {
-      "score":-1,
-      "color": "red",
-      "type": "virus",
-      "img_url":"./cards/red_virus_04.png"
-      }
-  ])
+  const [playerOneHand, setPlayerOneHand] = useState([])
   const [playerTwoHand, setPlayerTwoHand] = useState([])
 
   const [currentPlayer, setCurrentPlayer] = useState(1)
@@ -31,38 +19,8 @@ function App() {
   const [cards, setCards] = useState([])
   const [deck, setDeck] = useState([])
 
-  const [playerOneBoardArray, setPlayerOneBoardArray] = useState([{"score":0,
-  "color": "red",
-  "name": "heart",
-  "type": "organ",
-  "invulnerable": false,
-  "img_url":"./cards/red_organ.png"},{"score":0,
-  "color": "red",
-  "name": "heart",
-  "type": "organ",
-  "invulnerable": false,
-  "img_url":"./cards/red_organ.png"},{"score":0,
-  "color": "red",
-  "name": "heart",
-  "type": "organ",
-  "invulnerable": false,
-  "img_url":"./cards/red_organ.png"}])
-  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState([{"score":0,
-  "color": "red",
-  "name": "heart",
-  "type": "organ",
-  "invulnerable": false,
-  "img_url":"./cards/red_organ.png"},{"score":0,
-  "color": "red",
-  "name": "heart",
-  "type": "organ",
-  "invulnerable": false,
-  "img_url":"./cards/red_organ.png"},{"score":0,
-  "color": "red",
-  "name": "heart",
-  "type": "organ",
-  "invulnerable": false,
-  "img_url":"./cards/red_organ.png"}])
+  const [playerOneBoardArray, setPlayerOneBoardArray] = useState([])
+  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState([])
 
   const [selectedCard, setSelectedCard] = useState(null)
   const [handSelectedCard, setHandSelectedCard] = useState(null)
@@ -222,6 +180,7 @@ function App() {
               play_cure = {play_cure}
               checkBoard = {checkBoard}
               checkHand = {checkHand}
+              setCurrentPlayer = {setCurrentPlayer}
               
 
               />}
