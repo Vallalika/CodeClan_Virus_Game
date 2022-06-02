@@ -1,6 +1,9 @@
 const WinnerPage = function () {
     return (
-        <h1>Congratulations player has won the game</h1>
+        <div id="winnerPageContent">
+            <h1>Congratulations YOU have won the game</h1>
+            <img src="./winner_cup.gif" alt="Winner cup" id="cup"/>
+        </div>
     )
 }
 

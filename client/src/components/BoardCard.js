@@ -24,9 +24,9 @@ const BoardCard = ({card}) => {
 
     return (
         <>
-            <h3> {card.color} {card.type}  </h3>
-            <img src={card["img_url"]} id="card-image" ></img>
-            <h3>{message}</h3>
+            <h3 class="organ-details"> {card.color} {card.type}  </h3>
+            <img src={card["img_url"]} id="board-card-image" ></img>
+            <h3 class="organ-status">{message}</h3>
 
         </>
     )

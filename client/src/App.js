@@ -20,22 +20,8 @@ function App() {
   const [cards, setCards] = useState([])
   const [deck, setDeck] = useState([])
 
-  const [playerOneBoardArray, setPlayerOneBoardArray] = useState([{
-    "score":0,
-    "color": "red",
-    "name": "heart",
-    "type": "organ",
-    "invulnerable": false,
-    "img_url":"./cards/red_organ.png"
-}])
-  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState([{
-    "score":0,
-    "color": "red",
-    "name": "heart",
-    "type": "organ",
-    "invulnerable": false,
-    "img_url":"./cards/red_organ.png"
-}])
+  const [playerOneBoardArray, setPlayerOneBoardArray] = useState([])
+  const [playerTwoBoardArray, setPlayerTwoBoardArray] = useState([])
 
   const [selectedCard, setSelectedCard] = useState(null)
   const [handSelectedCard, setHandSelectedCard] = useState(null)

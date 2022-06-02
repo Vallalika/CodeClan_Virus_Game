@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&subset=latin');
+
 #App {
   text-align: center;
 }
 
 body {
   background-image: url("background_tile.png");
+  font-family: 'Lobster';
 }
 
 #header {
@@ -94,7 +97,7 @@ body {
 }
 
 #card-image{
-  max-width: 200px;
+  max-width: 150px;
   padding: 10px;
 }
 
@@ -105,10 +108,93 @@ body {
 
 h3 {
   text-align: center;
+  margin: 1em;
+  margin-block-start: 0.1em;
+  margin-block-end: 0.1em;
+}
+
+#cup{
+  max-width:300px;
+  border-radius: 100%;
+  
+}
+
+#winnerPageContent{
+    width: 800px;
+    height: 800px;
+    position: relative;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    padding: 50px;
+    color: greenyellow;
 }
 
 /* #board{
-  background-color: yellow;
-  width:500px;
-  height: 500px;
+  background-color: rgb(247, 237, 98);
+  min-width:fit-content
 } */
+
+button{
+  background-color: rgb(246, 220, 28);
+  border-radius: 10%;
+  color: purple;
+  text-align: center;
+  font-family: 'Lobster';
+  border:none;
+  padding: 5px;
+  margin: 5px;
+  width:100px;
+}
+
+button:hover{
+  background-color: rgb(123, 246, 28);
+  border-radius: 10%;
+  color: rgb(129, 26, 184);
+  text-align: center;
+  font-family: 'Lobster';
+  border:none;
+  padding: 5px;
+  margin: 5px;
+  width:100px;
+
+}
+
+select{
+  background-color: rgb(246, 220, 28);
+  font-family: 'Lobster';
+  padding: 5px;
+}
+
+#board-card-image{
+  max-height: 100px;
+  padding:1em;
+}
+
+.organ-details{
+  color: rgb(129, 26, 184);
+  text-align: center;
+  font-family: 'Lobster';
+  font-size:1em;
+}
+
+.organ-status{
+  color: rgb(72, 131, 0);
+  text-align: center;
+  font-family: 'Lobster';
+  font-size:1.5em;
+}
+.hand-card-details{
+  color: rgb(247, 225, 26);
+  text-align: center;
+  font-family: 'Lobster';
+}
+
+.board-name{
+  text-align: center;
+  color: rgb(176, 162, 38);
+
+}
