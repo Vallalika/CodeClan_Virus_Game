@@ -125,7 +125,6 @@ function App() {
       }
     }}
     
-
   const play_virus = function(selectedCard){
     let playerHand = checkHand(currentPlayer, playerOneHand, playerTwoHand)
     // Warning guys!!! not good practice arguments are inverted
@@ -136,9 +135,14 @@ function App() {
       
       let boardCopy = [...playerBoard]
       for (let card of boardCopy){
-        if(card.type === "organ" && card.color === selectedCard.color){
+        if(card.type === "organ" && card.color === selectedCard.color && card.score <2){
           card.score += selectedCard.score
-          setPlayerBoard(boardCopy)
+          if(card.score <= -2){
+            boardCopy.splice(playerBoard.indexOf(card),1)
+            setPlayerBoard(boardCopy)
+          }
+          else{
+          setPlayerBoard(boardCopy)}
           playerHand.splice(playerHand.indexOf(selectedCard),1)
 
         }
@@ -227,7 +231,7 @@ function App() {
             <Route
               path="/winnerpage"
               element = {<WinnerPage name={checkPlayerName(currentPlayer,playerOneName,playerTwoName)}/>}>
-            </Route>
+              </Route>
           </Routes>
         
         
