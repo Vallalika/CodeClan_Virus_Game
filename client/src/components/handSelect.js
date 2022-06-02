@@ -19,7 +19,7 @@ const HandSelect = ({playerOneHand, playerTwoHand, onHandSelectedCard,add_organ,
     const displayOptions = function() {
         let hand = checkHand(currentPlayer, playerOneHand, playerTwoHand)
         const cardOptions = hand.map((card, index) => {
-            return <option value = {index} key ={index}>{card.color} {card.type} {card.name}</option>
+            return <option value = {index} key ={index}>{card.color} {card.type} </option>
         })
         return cardOptions
     }

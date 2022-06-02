@@ -1,7 +1,7 @@
-const WinnerPage = function () {
+const WinnerPage = function ({name}) {
     return (
         <div id="winnerPageContent">
-            <h1>Congratulations YOU have won the game</h1>
+            <h1>Congratulations {name} have won the game</h1>
             <img src="./winner_cup.gif" alt="Winner cup" id="cup"/>
         </div>
     )
