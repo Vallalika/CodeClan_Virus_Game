@@ -93,6 +93,15 @@ function App() {
     }
   }
 
+  const checkPlayerName = function (currentPlayer,playerOneName,playerTwoName) {
+    if (currentPlayer === 1) {
+      return (playerTwoName)
+    } else {
+      return (playerOneName)
+    }
+  }
+  
+
   const add_organ = function (selectedCard){
     
     let playerHand = checkHand(currentPlayer, playerOneHand, playerTwoHand)
@@ -217,7 +226,7 @@ function App() {
             />
             <Route
               path="/winnerpage"
-              element = {<WinnerPage />}>
+              element = {<WinnerPage name={checkPlayerName(currentPlayer,playerOneName,playerTwoName)}/>}>
             </Route>
           </Routes>
         
