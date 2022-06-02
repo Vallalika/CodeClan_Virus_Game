@@ -8,7 +8,7 @@ import {BrowserRouter as Router, Routes, Link, Route, useNavigate} from "react-r
 const GridWrap = styled.main`
     height: 100vh;
     display: grid;
-    grid-template-rows: 1fr 3fr 2fr;
+    grid-template-rows: 150px 280px 300px;
     grid-template-columns: 1fr 3fr 3fr 1fr;
 
     justify-items: center;
@@ -35,7 +35,7 @@ const LeftBoard = styled.section `
     background-color: rgb(247, 237, 98);
     border-radius: 15px;
     min-width: 80%;
-    min-height: 300px;
+    min-height: 250px;
     margin-top: 80px;
 `
 
@@ -45,7 +45,7 @@ const RightBoard = styled.section `
     background-color: rgb(247, 237, 98);
     border-radius: 15px;
     min-width: 80%;
-    min-height: 300px;
+    min-height: 250px;
     margin-top: 80px;
 `
 

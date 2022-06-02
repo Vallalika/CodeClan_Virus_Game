@@ -97,7 +97,7 @@ body {
 }
 
 #card-image{
-  max-width: 200px;
+  max-width: 150px;
   padding: 10px;
 }
 
@@ -170,7 +170,7 @@ select{
 }
 
 #board-card-image{
-  max-height: 200px;
+  max-height: 100px;
   padding:1em;
 }
 
