@@ -160,6 +160,7 @@ function App() {
       if(selectedCard.type === "cure"){
         
         let boardCopy = [...playerBoard]
+        debugger
         for (let card of boardCopy){
           if(card.color === selectedCard.color){
             card.score += selectedCard.score

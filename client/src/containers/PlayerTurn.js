@@ -101,7 +101,7 @@ const onClickDelete = () => {
                         checkBoard = {checkBoard}
                         checkHand = {checkHand} 
                         />
-                     <button onClick={()=> onNextTurnClick(playerOneBoardArray)}>Next Turn</button>
+                     <button onClick={()=> onNextTurnClick(checkBoard(currentPlayer, playerOneBoardArray, playerTwoBoardArray))}>Next Turn</button>
                      <button onClick={onClickDelete}>Clear Hand</button>
 
 
