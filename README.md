@@ -15,7 +15,7 @@ A digital version of the **Virus!** card game built on a MERN stack.
 2. Open the command line and navigate to the folder where you want to install the game.
 3. Copy-paste the below in the command line:
 
-        git clone git@github.com:mdavidson05/CodeClan_Virus_Game.git
+        git clone https://github.com/mdavidson05/CodeClan_Virus_Game.git
 
     *The app folder is now created and should be visible.*
 4. Navigate to the server folder then type the below to install all required packages:
