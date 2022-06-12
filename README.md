@@ -11,7 +11,7 @@ A digital version of the **Virus!** card game built on a MERN stack.
 <img width="700" alt="covatars" src="https://user-images.githubusercontent.com/101068957/173205054-64841028-e4ab-4460-8eb4-a1fd13a4a1ce.png">
 
 ## Install & Run
-1. Make sure you have Express, MongoDb and Node all installed.
+1. Make sure you have Express, MongoDb, Node and Node Package Manager all installed.
 2. Open the command line and navigate to the folder where you want to install the game.
 3. Copy-paste the below in the command line:
 
