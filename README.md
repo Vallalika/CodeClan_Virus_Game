@@ -3,7 +3,7 @@
 A digital version of the **Virus!** card game built on a MERN stack.
 <br />
 <br />
-**Developed by:** [mdavidson05](https://github.com/mdavidson05), [Silvia Cecin](https://github.com/Scecin), [Mario A Gonzalez Robert](https://github.com/MagoroGraphics), [Valerie Bayard](https://github.com/Vallalika)
+**Developed by:** [Maxton Davidson](https://github.com/mdavidson05), [Silvia Cecin](https://github.com/Scecin), [Mario A Gonzalez Robert](https://github.com/MagoroGraphics), [Valerie Bayard](https://github.com/Vallalika)
 <br />
 **Graphics by:** [Mario A Gonzalez Robert](https://github.com/MagoroGraphics)
 
@@ -49,7 +49,7 @@ A digital version of the **Virus!** card game built on a MERN stack.
 <hr />
 
 ⚠ **Getting a black screen referring to handSelect.js in Chrome?**
-< br />
+
 
 If you get the above error, navigate to client/src/components and rename handSelect.js by **H**andSelect.js.
 Go back to Chrome and refresh the browser. That should be it working now!
